@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
   // check if short sale data need to be updated
   let meta = await Meta.findOne({});
   if (meta && meta.lastUpdate && latestDateInTxt <= meta.lastUpdate)
-    return generateResponse(400, 'No data need to update.');
+    return generateResponse(200, 'No data need to update.');
 
   const shortData = extractShortData(lineData);
   const shortRecords = generateShortObject(shortData, latestDateInTxt);
