@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
 
 import ShortList from '../../components/shortList';
-import { StyledFav } from './style';
+import StyledFav from './style';
 export default memo(function Fav() {
   const [favs, setFavs] = useState([]);
 

@@ -1,4 +1,4 @@
-import { StyledIndex } from './style';
+import StyledIndex from './style';
 // import Autosuggest from 'react-autosuggest';
 
 import { memo } from 'react';

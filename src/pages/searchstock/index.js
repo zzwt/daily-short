@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { StyledSearchStock } from './style';
+import StyledSearchStock from './style';
 export default memo(function SearchStock() {
   return (
     <StyledSearchStock className="border-shadow">

@@ -5,7 +5,7 @@ import { numberWithCommas } from '../../../utils/helper';
 
 import useSWR from 'swr';
 import Spinner from '../../../components/spinner';
-import { StyledSearchStockByCode } from './style';
+import StyledSearchStockByCode from './style';
 import { StarOutlined, StarFilled } from '@ant-design/icons';
 import {
   BarChart,

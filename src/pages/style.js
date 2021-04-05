@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledIndex = styled.div`
+const StyledIndex = styled.div`
   /* background: red; */
   min-height: 100vh;
   padding-bottom: 40px;
@@ -39,3 +39,4 @@ export const StyledIndex = styled.div`
     }
   } */
 `;
+export default StyledIndex;

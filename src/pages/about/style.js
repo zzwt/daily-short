@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledAbout = styled.div`
+const StyledAbout = styled.div`
   margin-top: 20px;
   .about {
     padding: 20px 50px 50px 50px;
@@ -12,3 +12,4 @@ export const StyledAbout = styled.div`
     }
   }
 `;
+export default StyledAbout;

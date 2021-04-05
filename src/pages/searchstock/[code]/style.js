@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSearchStockByCode = styled.div`
+const StyledSearchStockByCode = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,3 +46,4 @@ export const StyledSearchStockByCode = styled.div`
     }
   }
 `;
+export default StyledSearchStockByCode;

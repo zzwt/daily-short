@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { StyledAbout } from './style';
+import StyledAbout from './style';
 export default memo(function About() {
   return (
     <StyledAbout>

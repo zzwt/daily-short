@@ -1,3 +1,4 @@
 import styled from 'styled-components';
 
-export const StyledFav = styled.div``;
+const StyledFav = styled.div``;
+export default StyledFav;

@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect } from 'react';
 import useSWR from 'swr';
 
-import { StyledMarket } from './style';
+import StyledMarket from './style';
 
 import { ResponsiveTreeMap } from '@nivo/treemap';
 import Spinner from '../../components/spinner';

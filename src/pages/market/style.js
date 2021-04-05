@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledMarket = styled.div`
+const StyledMarket = styled.div`
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -24,3 +24,4 @@ export const StyledMarket = styled.div`
     height: 570px;
   }
 `;
+export default StyledMarket;
