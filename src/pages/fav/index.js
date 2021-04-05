@@ -8,7 +8,7 @@ export default memo(function Fav() {
 
   useEffect(() => {
     const cookies = new Cookies();
-    const savedTickers = cookies.get('t');
+    const savedTickers = cookies.get('t') || [];
     setFavs(savedTickers.join(','));
   }, []);
 

@@ -23,13 +23,6 @@ export default memo(function SearchBar() {
     searchCode.length > 0 ? `/codes/${searchCode}` : null
   );
 
-  useEffect(() => {
-    console.log('use Effect called');
-    return () => {
-      console.log('destruction');
-    };
-  }, []);
-
   const onChange = (event, { newValue }) => {
     setSearchCode(newValue);
   };
