@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "@nivo/core": "^0.67.0",
+    "@nivo/treemap": "^0.67.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.3",
@@ -10,16 +13,20 @@
     "dotenv": "^8.2.0",
     "moment": "^2.29.1",
     "mongoose": "^5.11.18",
+    "next": "^10.0.9",
     "react": "^17.0.1",
+    "react-autosuggest": "^10.1.0",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.3",
+    "recharts": "^2.0.9",
+    "styled-components": "^5.2.1",
+    "swr": "^0.5.5",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "next-images": "^1.7.0"
   }
 }
