@@ -93,7 +93,6 @@ export const StyledSearchBar = styled.div`
       position: absolute;
       top: 8px;
       left: 12px;
-      /* transform: translate(-165px, 0); */
       color: grey;
     }
     .spinner {
@@ -102,6 +101,12 @@ export const StyledSearchBar = styled.div`
       width: 30px;
       right: 10px;
       top: 4px;
+    }
+    .error {
+      position: absolute;
+      top: 8px;
+      right: 50px;
+      color: #bd1a30;
     }
   }
 `;

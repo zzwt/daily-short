@@ -2,7 +2,7 @@ import React, { memo, useState, useEffect } from 'react';
 import useSWR from 'swr';
 
 import StyledMarket from './style';
-
+import Message from '../../components/message';
 import { ResponsiveTreeMap } from '@nivo/treemap';
 import Spinner from '../../components/spinner';
 
@@ -14,7 +14,11 @@ export default memo(function SearchStock() {
   };
 
   if (sectorError)
-    return <div>Error fethcing sector shorts. Please try later...</div>;
+    return (
+      <div className="message">
+        <Message content="Error fethcing market data. Please try later..."></Message>
+      </div>
+    );
   if (!sectorShorts)
     return (
       <div className="spinner">

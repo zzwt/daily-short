@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import PercentageBar from '../percentageBar';
 import Spinner from '../spinner';
+import Message from '../message';
 import { StyledShortList } from './style';
 import useSWR from 'swr';
 export default memo(function ShortList({ endpoint, cookie, title = '' }) {
@@ -54,7 +55,11 @@ export default memo(function ShortList({ endpoint, cookie, title = '' }) {
   };
 
   if (error)
-    return <div>Error fethcing top shorts data. Please try later...</div>;
+    return (
+      <div className="message">
+        <Message content="Error fethcing top shorts data. Please try later..."></Message>
+      </div>
+    );
   if (!data)
     return (
       <div className="spinner">

@@ -75,7 +75,9 @@ export default memo(function SearchBar() {
             <Spinner />
           </div>
         )}
-        {error && <div>Error fetching codes. Please try later...</div>}
+        {error && (
+          <div className="error">Error fetching codes. Please try later...</div>
+        )}
       </div>
     </StyledSearchBar>
   );
