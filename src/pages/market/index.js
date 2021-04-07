@@ -52,7 +52,7 @@ export default memo(function SearchStock(props) {
           // labelTextColor={{ from: 'color', modifiers: [['darker', 1.2]] }}
           parentLabelTextColor="#363636"
           // borderColor={{ from: 'color', modifiers: [['darker', 0.1]] }}
-          theme={{ fontSize: '9', fontWeight: 600 }}
+          theme={{ fontSize: '9px', fontWeight: 600 }}
         />
       </div>
     </StyledMarket>
