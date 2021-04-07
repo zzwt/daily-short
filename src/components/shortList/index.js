@@ -8,9 +8,7 @@ import Message from '../message';
 import { StyledShortList } from './style';
 import useSWR from 'swr';
 export default memo(function ShortList({ endpoint, cookie, title = '' }) {
-  const { data, error } = useSWR([`/${endpoint}`, cookie ? cookie : null], {
-    revalidateOnFocus: false,
-  });
+  const { data, error } = useSWR([`/${endpoint}`, cookie ? cookie : null]);
 
   const [shortDate, shortData] = useMemo(() => {
     if (data && data.date && data.shorts) {
