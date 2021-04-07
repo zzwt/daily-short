@@ -74,7 +74,7 @@ export default memo(function ShortList({ endpoint, cookie, title = '' }) {
       <div className="title">
         <h3> {`${title} `}</h3>
         <p className="date">
-          {`Last Update: ${shortDate.getDate()}-${
+          {`End of Day: ${shortDate.getDate()}-${
             shortDate.getMonth() + 1
           }-${shortDate.getFullYear()}`}
         </p>

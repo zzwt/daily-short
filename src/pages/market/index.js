@@ -31,7 +31,7 @@ export default memo(function SearchStock(props) {
   return (
     <StyledMarket className="border-shadow">
       <p className="date">
-        {`Last Update: ${date.getDate()}-${
+        {`End of Day: ${date.getDate()}-${
           date.getMonth() + 1
         }-${date.getFullYear()}`}
       </p>
