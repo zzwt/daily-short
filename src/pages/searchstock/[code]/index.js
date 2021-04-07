@@ -2,7 +2,7 @@ import React, { memo, useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import Cookies from 'universal-cookie';
 import { numberWithCommas } from '../../../utils/helper';
-
+import axios from 'axios';
 import useSWR from 'swr';
 import Spinner from '../../../components/spinner';
 import StyledSearchStockByCode from './style';
@@ -25,12 +25,15 @@ const codeInCookies = (code) => {
   return tickers && tickers.findIndex((ticker) => ticker === code) !== -1;
 };
 
-export default memo(function SearchStockByCode() {
+export default memo(function SearchStockByCode(props) {
   const [starred, setStarred] = useState(false);
   const router = useRouter();
 
   const { data: historyResponse, error: historyError } = useSWR(
-    `/data/${router.query.code.toUpperCase()}`
+    `/data/${router.query.code.toUpperCase()}`,
+    {
+      initialData: props,
+    }
   );
 
   useEffect(() => {
@@ -82,7 +85,6 @@ export default memo(function SearchStockByCode() {
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
-      console.log(payload);
       return (
         <div className="custom-tooltip">
           <p className="pct">
@@ -153,6 +155,10 @@ export default memo(function SearchStockByCode() {
   );
 });
 
-export async function getServerSideProps(context) {
-  return { props: {} };
+export async function getServerSideProps(ctx) {
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URI}/data/${ctx.query.code.toUpperCase()}`
+  );
+
+  return { props: response.data };
 }
