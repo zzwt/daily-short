@@ -18,10 +18,32 @@ const getSuggestionValue = (suggestion) => suggestion.code;
 export default memo(function SearchBar() {
   const [searchCode, setSearchCode] = useState('');
   const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
+
   // const [suggestions, setSuggestions] = useState([]);
   const { data, error } = useSWR(
     searchCode.length > 0 ? `/codes/${searchCode}` : null
   );
+
+  useEffect(() => {
+    const handleStart = (url) => {
+      setLoading(true);
+    };
+    const handleComplete = (url) => {
+      setLoading(false);
+    };
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  }, []);
 
   const onChange = (event, { newValue }) => {
     setSearchCode(newValue);
@@ -55,8 +77,8 @@ export default memo(function SearchBar() {
     // else setStarred(false);
   };
   return (
-    <StyledSearchBar className="border-shadow">
-      <div className="search-bar">
+    <StyledSearchBar>
+      <div className="search-bar border-shadow">
         <Autosuggest
           // suggestions={suggestions}
           suggestions={data ? data.codes : []}
@@ -79,6 +101,11 @@ export default memo(function SearchBar() {
           <div className="error">Error fetching codes. Please try later...</div>
         )}
       </div>
+      {loading && (
+        <div className="switch_page_spinner">
+          <Spinner />
+        </div>
+      )}
     </StyledSearchBar>
   );
 });

@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledSearchBar = styled.div`
+  /* height: 500px;
+  background: inherit; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
   .search-bar {
     /* width: 200px; */
 
@@ -108,5 +113,15 @@ export const StyledSearchBar = styled.div`
       right: 50px;
       color: #bd1a30;
     }
+  }
+  .switch_page_spinner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    /* margin: 20px auto; */
   }
 `;
