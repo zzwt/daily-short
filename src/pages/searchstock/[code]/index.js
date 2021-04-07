@@ -39,8 +39,12 @@ export default memo(function SearchStockByCode(props) {
   useEffect(() => {
     // setCurrentCode(router.query.code.toUpperCase());
     // searcyHistoryByCode(router.query.code.toUpperCase());
-    if (codeInCookies(router.query.code.toUpperCase())) setStarred(true);
-  }, []);
+    if (codeInCookies(router.query.code.toUpperCase())) {
+      setStarred(true);
+    } else {
+      setStarred(false);
+    }
+  }, [router.query.code.toUpperCase()]);
 
   const history = useMemo(() => {
     if (historyResponse) {
