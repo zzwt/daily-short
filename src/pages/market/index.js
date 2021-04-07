@@ -1,13 +1,15 @@
 import React, { memo, useState, useEffect } from 'react';
 import useSWR from 'swr';
-
+import axios from 'axios';
 import StyledMarket from './style';
 import Message from '../../components/message';
 import { ResponsiveTreeMap } from '@nivo/treemap';
 import Spinner from '../../components/spinner';
 
-export default memo(function SearchStock() {
-  const { data: sectorShorts, error: sectorError } = useSWR('/sectorshorts');
+export default memo(function SearchStock(props) {
+  const { data: sectorShorts, error: sectorError } = useSWR('/sectorshorts', {
+    initialData: props,
+  });
 
   const labelDisplay = (node) => {
     return `${node.id}: ${node.formattedValue}`;
@@ -57,6 +59,10 @@ export default memo(function SearchStock() {
   );
 });
 
-// export async function getServerSideProps(context) {
-//   return { props: {} };
-// }
+export async function getServerSideProps(context) {
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URI}/sectorshorts`
+  );
+
+  return { props: response.data };
+}
