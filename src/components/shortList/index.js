@@ -33,17 +33,24 @@ export default memo(function ShortList({ endpoint, cookie, title = '' }) {
         <div
           key={sdata._id}
           className="top-short-data-item"
+          data-test="data-item"
           onClick={(e) => {
             router.push(`/searchstock/${sdata.code}`);
           }}
         >
-          <div className="ticker">{sdata.code}</div>
-          <div className="name">{sdata.desc}</div>
-          <div className="short-sale">{numberWithCommas(sdata.shortSale)}</div>
-          <div className="percentage">
+          <div className="ticker" data-test="ticker">
+            {sdata.code}
+          </div>
+          <div className="name" data-test="name">
+            {sdata.desc}
+          </div>
+          <div className="short-sale" data-test="short-sale">
+            {numberWithCommas(sdata.shortSale)}
+          </div>
+          <div className="percentage" data-test="percentage">
             {numberWithCommas(sdata.percentage)}%
           </div>
-          <div className="percentage-bar">
+          <div className="percentage-bar" data-test="percentage-bar">
             <PercentageBar
               percentageValue={sdata.percentage}
               widthRatio={sdata.widthRatio}
@@ -56,13 +63,13 @@ export default memo(function ShortList({ endpoint, cookie, title = '' }) {
 
   if (error)
     return (
-      <div className="message">
+      <div className="message" data-test="error">
         <Message content="Error fethcing top shorts data. Please try later..."></Message>
       </div>
     );
   if (!data)
     return (
-      <div className="spinner">
+      <div className="spinner" data-test="loading">
         <Spinner></Spinner>
       </div>
     );
@@ -70,8 +77,8 @@ export default memo(function ShortList({ endpoint, cookie, title = '' }) {
   return (
     <StyledShortList className="border-shadow">
       <div className="title">
-        <h3> {`${title} `}</h3>
-        <p className="date">
+        <h3 data-test="title"> {`${title} `}</h3>
+        <p className="date" data-test="endofday">
           {`End of Day: ${shortDate.getDate()}-${
             shortDate.getMonth() + 1
           }-${shortDate.getFullYear()}`}
@@ -79,7 +86,7 @@ export default memo(function ShortList({ endpoint, cookie, title = '' }) {
       </div>
 
       <div className="top-short">
-        <div className="top-short-header">
+        <div className="top-short-header" data-test="header">
           <div className="ticker">Ticker</div>
           <div className="name">Name</div>
           <div className="short-sale">Short Sale</div>

@@ -6,7 +6,7 @@ import SpinnerImg from '../../../public/spinner.gif';
 export default memo(function Spinner() {
   return (
     <StyledSpinner>
-      <img src={SpinnerImg} />
+      <img src={SpinnerImg} data-test="image" />
     </StyledSpinner>
   );
 });
