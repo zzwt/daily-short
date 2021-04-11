@@ -11,7 +11,7 @@ export default memo(function PercentageBar({ percentageValue, widthRatio }) {
       widthRatio={widthRatio}
       percentageValue={percentageValue}
     >
-      <div className="bar"></div>
+      <div className="bar" data-test="bar"></div>
       {/* <div className="title">{percentageValue}%</div> */}
     </StyledPercentageBar>
   );

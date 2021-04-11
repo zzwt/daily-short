@@ -7,10 +7,10 @@ import { SearchOutlined } from '@ant-design/icons';
 import Spinner from '../../components/spinner';
 import { useRouter } from 'next/router';
 const renderSuggestion = (suggestion) => (
-  <>
+  <div className="suggest-item" data-test="suggest-item">
     <div className="code">{suggestion.code}</div>
     <div className="desc">{suggestion.desc}</div>
-  </>
+  </div>
 );
 
 const getSuggestionValue = (suggestion) => suggestion.code;
@@ -93,7 +93,7 @@ export default memo(function SearchBar() {
           <SearchOutlined />
         </div>
         {!data && searchCode.length > 0 && (
-          <div className="spinner">
+          <div className="spinner" data-test="spinner">
             <Spinner />
           </div>
         )}

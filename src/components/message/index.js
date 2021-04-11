@@ -4,7 +4,7 @@ import { StyledMessage } from './style.js';
 export default memo(function Message({ content }) {
   return (
     <StyledMessage className="border-shadow">
-      <h3>{content}</h3>
+      <h3 data-test="message">{content}</h3>
     </StyledMessage>
   );
 });

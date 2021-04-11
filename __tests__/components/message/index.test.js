@@ -1,8 +1,9 @@
 import { shallow } from 'enzyme';
 
 import Message from '../../../src/components/message';
+import { findTestWrapper } from '../../../src/utils/testHelper';
 
-test('Message Component should render content ', () => {
+it('Message Component should render content ', () => {
   const wrapper = shallow(<Message content="test" />);
-  expect(wrapper.find('h3')).toHaveLength(1);
+  expect(findTestWrapper(wrapper, 'message')).toHaveLength(1);
 });

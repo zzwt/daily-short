@@ -17,13 +17,7 @@ import {
   Label,
   Bar,
 } from 'recharts';
-
-const cookies = new Cookies();
-const codeInCookies = (code) => {
-  const tickers = cookies.get('t');
-  // console.log('tickers in cookie', tickers.split(','), router.query);
-  return tickers && tickers.findIndex((ticker) => ticker === code) !== -1;
-};
+import Message from '../../../components/message';
 
 export default memo(function SearchStockByCode(props) {
   const [starred, setStarred] = useState(false);
@@ -39,6 +33,7 @@ export default memo(function SearchStockByCode(props) {
   useEffect(() => {
     // setCurrentCode(router.query.code.toUpperCase());
     // searcyHistoryByCode(router.query.code.toUpperCase());
+
     if (codeInCookies(router.query.code.toUpperCase())) {
       setStarred(true);
     } else {
@@ -47,7 +42,7 @@ export default memo(function SearchStockByCode(props) {
   }, [router.query.code.toUpperCase()]);
 
   const history = useMemo(() => {
-    if (historyResponse) {
+    if (historyResponse && !historyResponse.error) {
       return historyResponse.shortData.map((d) => {
         const date = new Date(d.shortDate);
         return {
@@ -59,16 +54,36 @@ export default memo(function SearchStockByCode(props) {
     return [];
   }, [historyResponse]);
 
+  const codeInCookies = (code) => {
+    const cookies = new Cookies();
+
+    const tickers = cookies.get('t');
+    // console.log('tickers in cookie', tickers.split(','), router.query);
+    return tickers && tickers.findIndex((ticker) => ticker === code) !== -1;
+  };
+
   if (historyError)
-    return <div>Error fethcing history data. Please try later...</div>;
-  if (!historyResponse)
     return (
-      <div className="spinner">
+      <div className="message" data-test="error-fetching">
+        <Message content="Error fethcing history data. Please try later..." />
+      </div>
+    );
+  if (!historyResponse) {
+    return (
+      <div className="spinner" data-test="spinner">
         <Spinner />
+      </div>
+    );
+  }
+  if (historyResponse.error)
+    return (
+      <div className="message" data-test="invalid-code">
+        <Message content={historyResponse.message} />
       </div>
     );
 
   const saveFav = (e) => {
+    const cookies = new Cookies();
     const currentCode = router.query.code;
     const existingTickers = cookies.get('t');
     if (starred) {
@@ -108,22 +123,20 @@ export default memo(function SearchStockByCode(props) {
   return (
     <StyledSearchStockByCode className="border-shadow">
       <>
-        {history.length > 0 && (
-          <div className="title">
-            <h3>
-              {`${history[0].code} - ${history[0].desc}`}
-              <span className="starred" onClick={saveFav}>
-                {starred ? (
-                  <StarFilled style={{ color: '#f2c11f' }} />
-                ) : (
-                  <StarOutlined />
-                )}
-              </span>
-            </h3>
-          </div>
-        )}
+        <div className="title" data-test="title">
+          <h3>
+            {`${history[0].code} - ${history[0].desc}`}
+            <span className="starred" onClick={saveFav} data-test="starred">
+              {starred ? (
+                <StarFilled style={{ color: '#f2c11f' }} />
+              ) : (
+                <StarOutlined data-test="outline" />
+              )}
+            </span>
+          </h3>
+        </div>
 
-        <div className="chart">
+        <div className="chart" data-test="chart">
           <BarChart width={960} height={250} data={history}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis

@@ -25,32 +25,32 @@ export default memo(function Header() {
     <StyledHeader>
       <h2 className="header">Daily ASX Short Sales</h2>
       <div className="menu border-shadow">
-        <Link href="/">
+        <Link href="/" data-test="item">
           <div className={menuItemClass('/')}>
             <UnorderedListOutlined />
             <a>Top Sale Today</a>
           </div>
           {/* </div> */}
         </Link>
-        <Link href="/market">
+        <Link href="/market" data-test="item">
           <div className={menuItemClass('/market')}>
             <BarChartOutlined />
             <a>Market</a>
           </div>
         </Link>
-        <Link href="/searchstock">
+        <Link href="/searchstock" data-test="item">
           <div className={menuItemClass('/searchstock', false)}>
             <StockOutlined />
             <a> Stocks </a>
           </div>
         </Link>
-        <Link href="/fav">
+        <Link href="/fav" data-test="item">
           <div className={menuItemClass('/fav')}>
             <StarOutlined />
             <a>My favourites</a>
           </div>
         </Link>
-        <Link href="/about">
+        <Link href="/about" data-test="item">
           <div className={menuItemClass('/about')}>
             <InfoCircleOutlined />
             <a>About</a>
