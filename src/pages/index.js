@@ -7,7 +7,7 @@ import ShortList from '../components/shortList';
 
 export default memo(function Index() {
   return (
-    <StyledIndex>
+    <StyledIndex data-test="shortlist">
       <ShortList endpoint="topshorts" title="Top Short Sales"></ShortList>
     </StyledIndex>
   );

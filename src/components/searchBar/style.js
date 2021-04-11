@@ -63,31 +63,40 @@ export const StyledSearchBar = styled.div`
             height: 35px;
 
             cursor: pointer;
-            &:hover {
-              background: #52c58e;
-              color: #ffffff;
-              .desc {
+
+            .suggest-item {
+              &:hover {
+                background: #52c58e;
                 color: #ffffff;
+                .desc {
+                  color: #ffffff;
+                }
               }
-            }
-            .code {
-              font-size: 0.8rem;
-              font-weight: 500;
-            }
-            .desc {
-              font-size: 0.4rem;
-              height: 8px;
-              width: 100px;
-              text-align: center;
-              margin-top: 2px;
-              color: grey;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              .code {
+                font-size: 0.8rem;
+                font-weight: 500;
+              }
+              .desc {
+                font-size: 0.4rem;
+                height: 8px;
+                width: 100px;
+                text-align: center;
+                margin-top: 2px;
+                color: grey;
+              }
             }
           }
           .react-autosuggest__suggestion--highlighted {
             background: #52c58e;
-            color: #ffffff;
-            .desc {
+            .suggest-item {
               color: #ffffff;
+              .desc {
+                color: #ffffff;
+              }
             }
           }
         }

@@ -17,12 +17,17 @@ export default memo(function Fav() {
   return (
     <StyledFav>
       {favs.length === 0 && (
-        <div className="message">
+        <div className="message" data-test="msg">
           <Message content="You have no favourites yet. Please add first..."></Message>
         </div>
       )}
       {favs.length > 0 && (
-        <ShortList endpoint="favs" cookie={favs} title="Starred" />
+        <ShortList
+          endpoint="favs"
+          cookie={favs}
+          title="Starred"
+          data-test="starred"
+        />
       )}
     </StyledFav>
   );

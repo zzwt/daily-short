@@ -14,13 +14,13 @@ export default memo(function SearchStock(props) {
 
   if (sectorError)
     return (
-      <div className="message">
+      <div className="message" data-test="error">
         <Message content="Error fethcing market data. Please try later..."></Message>
       </div>
     );
   if (!sectorShorts)
     return (
-      <div className="spinner">
+      <div className="spinner" data-test="spinner">
         <Spinner />
       </div>
     );
@@ -33,7 +33,7 @@ export default memo(function SearchStock(props) {
         }-${date.getFullYear()}`}
       </p>
 
-      <div className="sector-shorts">
+      <div className="sector-shorts" data-test="chart">
         <ResponsiveTreeMap
           data={sectorShorts.shorts}
           identity="name"

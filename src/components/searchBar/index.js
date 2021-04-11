@@ -7,7 +7,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import Spinner from '../../components/spinner';
 import { useRouter } from 'next/router';
 const renderSuggestion = (suggestion) => (
-  <div data-test="suggest-item">
+  <div className="suggest-item" data-test="suggest-item">
     <div className="code">{suggestion.code}</div>
     <div className="desc">{suggestion.desc}</div>
   </div>
