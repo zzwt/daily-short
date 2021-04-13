@@ -45,8 +45,10 @@ export default memo(function SearchBar() {
     };
   }, []);
 
-  const onChange = (event, { newValue }) => {
-    setSearchCode(newValue);
+  const onChange = (event, { newValue, method }) => {
+    if (method != 'up' && method != 'down') {
+      setSearchCode(newValue);
+    }
   };
 
   const inputProps = {
@@ -58,7 +60,8 @@ export default memo(function SearchBar() {
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
   const onSuggestionsFetchRequested = async ({ value }) => {
-    mutate(`/codes/${value}`);
+    // not  need as search key change will auto trigger refetch
+    // mutate(`/codes/${value}`);
   };
 
   // Autosuggest will call this function every time you need to clear suggestions.
@@ -69,13 +72,8 @@ export default memo(function SearchBar() {
   const onSuggestionSelected = async (event, { suggestion }) => {
     router.push(`/searchstock/${suggestion.code}`);
     setSearchCode('');
-
-    // searcyHistoryByCode(suggestion.code);
-    // setCurrentCode(suggestion.code);
-    // setSearchCode('');
-    // if (codeInCookies(suggestion.code)) setStarred(true);
-    // else setStarred(false);
   };
+
   return (
     <StyledSearchBar>
       <div className="search-bar border-shadow">
