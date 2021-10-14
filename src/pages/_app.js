@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from '../components/header';
+import Footer from '../components/footer';
 import { SWRConfig } from 'swr';
 import axios from 'axios';
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URI;
@@ -22,6 +23,7 @@ export default function MyApp({ Component, pageProps }) {
         <GlobalStyle />
         <Header></Header>
         <Component {...pageProps} />
+        <Footer></Footer>
       </ThemeProvider>
     </SWRConfig>
   );
@@ -40,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
   body {
     font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;

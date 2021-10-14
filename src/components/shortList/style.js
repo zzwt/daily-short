@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledShortList = styled.div`
-  margin: 20px 0;
+  margin-top: 20px;
   background: rgba(255, 255, 255, 0.3);
 
   padding: 30px 20px;
@@ -32,7 +32,7 @@ export const StyledShortList = styled.div`
 
     .top-short-header {
       font-weight: 500;
-      background: ${props => props.theme.colorWhite};
+      background: ${(props) => props.theme.colorWhite};
     }
 
     .top-short-data {

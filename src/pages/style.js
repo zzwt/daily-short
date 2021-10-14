@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const StyledIndex = styled.div`
   /* background: red; */
   min-height: 100vh;
-  padding-bottom: 40px;
   /* .top-short {
     margin-top: 10px;
     .top-short-header {
