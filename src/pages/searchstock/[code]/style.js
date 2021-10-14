@@ -4,13 +4,11 @@ const StyledSearchStockByCode = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #ffffff;
+  background: ${props => props.theme.colorWhite};
   justify-content: space-around;
   height: 400px;
   margin: 20px 0;
   .title {
-    /* background: green; */
-    /* margin: 0 0 30px 0; */
     .starred {
       margin-left: 10px;
       font-size: 1.4rem;
@@ -19,7 +17,6 @@ const StyledSearchStockByCode = styled.div`
   }
 
   .chart {
-    /* background: red; */
     padding: 20px;
     .custom-tooltip {
       background: white;
@@ -33,7 +30,7 @@ const StyledSearchStockByCode = styled.div`
         padding: 0;
         margin: 0;
         span {
-          color: blue;
+          color: ${props => props.theme.colorPrimary};
         }
       }
       .st {

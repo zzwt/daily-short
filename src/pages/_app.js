@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from '../components/header';
 import { SWRConfig } from 'swr';
 import axios from 'axios';
@@ -18,35 +18,50 @@ export default function MyApp({ Component, pageProps }) {
         },
       }}
     >
-      <GlobalStyle />
-      <Header></Header>
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header></Header>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </SWRConfig>
   );
 }
 
+const theme = {
+  colorPrimary: '#00be70',
+  colorSecondary: 'black',
+  colorWhite: '#ffffff',
+  colorGrey: '#9da7b9',
+  colorLightgrey: '#f0f0f0',
+  colorRed: '#ff3f4f',
+};
+
 const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+  }
   body {
     font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
     padding: 0;
-    /* max-width: 680px; */
-    margin: 0 auto;
-    background-image: linear-gradient(
-      to bottom right,
-      rgb(151, 153, 183) 10%,
-      rgb(80, 81, 110) 80%
+    background: repeating-linear-gradient(
+      45deg,
+      #def1ed,
+      #d5f2f6
+
     );
-    background-repeat: no-repeat;
     min-height: 100vh;
-    /* min-height: 100vh; */
     box-sizing: border-box;
-    /* color: #474747; */
-    color: rgb(65, 79, 118);
+    color: #162c5b;
+    
   }
 
   .wrapper {
     width: 1000px;
+    /* max-width: 1000px; */
+    /* min-width: 1000px; */
     margin: 0 auto;
+    /* display: flex; */
   }
 
   .border-shadow {
@@ -56,6 +71,13 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: 1px 1px 5px rgb(151, 153, 183);
   }
 
+  .round-border{
+    border-radius: 10px;
+    border: 2px solid white;
+    background: rgba(255,255,255,0.4)
+  }
+
+
   .spinner {
     width: 50px;
     height: 50px;
@@ -64,5 +86,12 @@ const GlobalStyle = createGlobalStyle`
 
   .message {
     margin-top: 20px;
+  }
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #162c5b;
+    opacity: 1; /* Firefox */
+  }
+  #__next{
+    overflow: hidden
   }
 `;

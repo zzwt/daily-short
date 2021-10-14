@@ -3,12 +3,9 @@ import styled from 'styled-components';
 const StyledMarket = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   padding: 30px 30px;
-  margin-top: 20px;
+  margin: 20px 0;
   height: 600px;
-  background: #f2f2f2;
-  /* display: flex; */
   align-items: flex-start;
   justify-content: center;
   p.date {
@@ -19,7 +16,6 @@ const StyledMarket = styled.div`
   }
 
   .sector-shorts {
-    /* margin-top: 30px; */
     width: 940px;
     height: 570px;
   }

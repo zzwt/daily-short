@@ -75,7 +75,7 @@ export default memo(function ShortList({ endpoint, cookie, title = '' }) {
     );
 
   return (
-    <StyledShortList className="border-shadow">
+    <StyledShortList className="round-border">
       <div className="title">
         <h3 data-test="title"> {`${title} `}</h3>
         <p className="date" data-test="endofday">

@@ -5,53 +5,61 @@ export const StyledHeader = styled.div`
   .header {
     width: 300px;
     margin: 40px auto 20px;
-    color: #ffffff;
+    font-weight: 800;
   }
   .menu {
-    /* padding: 0 80px; */
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    border: 2px solid white;
+
     margin: 20px 0;
     height: 50px;
-    background: #ffffff;
-    border-radius: 5px;
+    /* background: #ffffff; */
+    /* border-radius: 5px; */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 
     .menu-item {
       cursor: pointer;
-      width: 250px;
-      height: 50px;
+      /* width: 200px; */
+      /* height: 50px; */
       display: flex;
       justify-content: center;
       align-items: center;
+      box-sizing: border-box;
+      padding: 10px;
 
       a {
         margin-left: 7px;
-        font-weight: 500;
+        font-weight: 600;
         text-decoration: none;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
-      &:first-of-type {
+      /* &:first-of-type {
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
       }
       &:last-of-type {
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
-      }
+      } */
       &:hover {
-        /* color: #52c58e; */
-        color: #8082ab;
+        color: ${(props) => props.theme.colorGrey};
       }
     }
     .active {
-      background: #52c58e;
-      color: #ffffff;
+      /* background: ${(props) => props.theme.colorPrimary}; */
+      /* border-bottom: 3px solid ${(props) => props.theme.colorPrimary}; */
+      color: ${(props) => props.theme.colorPrimary};
+      a {
+        font-weight: 700;
+      }
       &:hover {
-        color: #ffffff;
+        color: ${(props) => props.theme.colorPrimary};
       }
     }
   }

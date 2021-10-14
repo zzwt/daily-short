@@ -1,60 +1,60 @@
 import styled from 'styled-components';
 
 export const StyledSearchBar = styled.div`
-  /* height: 500px;
-  background: inherit; */
+  padding: 5px;
+
   display: flex;
   flex-direction: column;
   position: relative;
   .search-bar {
-    /* width: 200px; */
-
     display: flex;
     justify-content: center;
     position: relative;
+    /* width: 100%; */
     .react-autosuggest__container {
-      max-width: 1000px;
-      /* background: green; */
+      /* max-width: 1000px;
+       */
+      /* width: 100%; */
+      flex-grow: 1;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
       position: relative;
-      input {
+
+      .react-autosuggest__input {
         box-sizing: border-box;
-        width: 1000px;
+        /* width: 1000px; */
+        width: 100%;
         padding: 10px 20px 10px 40px;
-        border-radius: 5px;
-        border: 1px solid #dedede;
+        /* border-radius: 5px;
+        border: 1px solid #dedede; */
+        /* border: 1px solid red; */
+        border: none;
+        background: none;
         outline: none;
-        /* box-shadow: 1px 1px 2px #dedede; */
       }
+
       .react-autosuggest__suggestions-container {
-        /* border: 1px solid grey; */
-        background: white;
-        /* margin-top: 5px; */
+        background: ${(props) => props.theme.colorWhite};
         position: absolute;
-        top: 43px;
+        top: 45px;
         box-shadow: 2px 2px 5px #dedede;
         border-radius: 10px;
         z-index: 100;
         .react-autosuggest__suggestions-list {
           width: 970px;
           padding: 15px;
-          /* padding: 10px; */
           margin: 0;
           list-style: none;
           display: grid;
           grid-template-columns: repeat(auto-fill, 110px);
-          /* grid-column-gap: 1px; */
-          /* grid-auto-rows: 100px; */
           justify-content: space-around;
 
           .react-autosuggest__suggestion {
             border-radius: 5px;
             width: 100px;
             padding: 5px 5px;
-            /* margin: 5px 5px; */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -66,7 +66,7 @@ export const StyledSearchBar = styled.div`
 
             .suggest-item {
               &:hover {
-                background: #52c58e;
+                background: ${(props) => props.theme.colorPrimary};
                 color: #ffffff;
                 .desc {
                   color: #ffffff;
@@ -91,11 +91,11 @@ export const StyledSearchBar = styled.div`
             }
           }
           .react-autosuggest__suggestion--highlighted {
-            background: #52c58e;
+            background: ${(props) => props.theme.colorPrimary};
             .suggest-item {
-              color: #ffffff;
+              color: ${(props) => props.theme.colorWhite};
               .desc {
-                color: #ffffff;
+                color: ${(props) => props.theme.colorWhite};
               }
             }
           }
@@ -105,9 +105,9 @@ export const StyledSearchBar = styled.div`
     .icon {
       font-size: 1.3rem;
       position: absolute;
-      top: 8px;
+      top: 7px;
       left: 12px;
-      color: grey;
+      /* color: grey; */
     }
     .spinner {
       position: absolute;
@@ -120,7 +120,7 @@ export const StyledSearchBar = styled.div`
       position: absolute;
       top: 8px;
       right: 50px;
-      color: #bd1a30;
+      color: ${(props) => props.theme.colorRed};
     }
   }
   .switch_page_spinner {
@@ -130,7 +130,5 @@ export const StyledSearchBar = styled.div`
     top: 50px;
     left: 50%;
     transform: translate(-50%, 0);
-
-    /* margin: 20px auto; */
   }
 `;

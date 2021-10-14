@@ -1,5 +1,3 @@
-// import { SearchOutlined } from '@ant-design/icons';
-
 import React, { memo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -24,13 +22,12 @@ export default memo(function Header() {
   return (
     <StyledHeader>
       <h2 className="header">Daily ASX Short Sales</h2>
-      <div className="menu border-shadow">
+      <div className="menu">
         <Link href="/" data-test="item">
           <div className={menuItemClass('/')}>
             <UnorderedListOutlined />
             <a>Top Sale Today</a>
           </div>
-          {/* </div> */}
         </Link>
         <Link href="/market" data-test="item">
           <div className={menuItemClass('/market')}>

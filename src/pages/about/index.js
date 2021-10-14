@@ -3,7 +3,7 @@ import StyledAbout from './style';
 export default memo(function About() {
   return (
     <StyledAbout>
-      <div className="border-shadow about">
+      <div className="round-border about">
         <h2>About ASX Daily Gross Short Sales Data</h2>
         <p data-test="data-disclaimer">
           Daily gross short sales data is collected from ASX which publishes it

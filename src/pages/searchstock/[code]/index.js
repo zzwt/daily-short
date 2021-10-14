@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useMemo } from 'react';
+import React, { memo, useState, useEffect, useMemo, useContext} from 'react';
 import { useRouter } from 'next/router';
 import Cookies from 'universal-cookie';
 import { numberWithCommas } from '../../../utils/helper';
@@ -7,6 +7,7 @@ import useSWR from 'swr';
 import Spinner from '../../../components/spinner';
 import StyledSearchStockByCode from './style';
 import { StarOutlined, StarFilled } from '@ant-design/icons';
+import { ThemeContext } from 'styled-components';
 import {
   BarChart,
   CartesianGrid,
@@ -22,6 +23,7 @@ import Message from '../../../components/message';
 export default memo(function SearchStockByCode(props) {
   const [starred, setStarred] = useState(false);
   const router = useRouter();
+  const themeContext = useContext(ThemeContext);
 
   const { data: historyResponse, error: historyError } = useSWR(
     `/data/${router.query.code.toUpperCase()}`,
@@ -119,16 +121,15 @@ export default memo(function SearchStockByCode(props) {
     }
     return null;
   };
-
   return (
-    <StyledSearchStockByCode className="border-shadow">
+    <StyledSearchStockByCode className="round-border">
       <>
         <div className="title" data-test="title">
           <h3>
             {`${history[0].code} - ${history[0].desc}`}
             <span className="starred" onClick={saveFav} data-test="starred">
               {starred ? (
-                <StarFilled style={{ color: '#f2c11f' }} />
+                <StarFilled style={{ color: '#f2c11f' }} /> 
               ) : (
                 <StarOutlined data-test="outline" />
               )}
@@ -157,14 +158,14 @@ export default memo(function SearchStockByCode(props) {
                 dx={0}
                 dy={82}
                 style={{
-                  fill: '#7e58d1',
+                  fill: themeContext.colorPrimary,
                   fontSize: '0.9rem',
                   fontWeight: '500',
                 }}
               ></Label>
             </YAxis>
             <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="percentage" barSize={15} fill="#7e58d1" />
+            <Bar dataKey="percentage" barSize={15} fill={themeContext.colorPrimary} />
           </BarChart>
         </div>
       </>

@@ -75,8 +75,8 @@ export default memo(function SearchBar() {
   };
 
   return (
-    <StyledSearchBar>
-      <div className="search-bar border-shadow">
+    <StyledSearchBar className="round-border">
+      <div className="search-bar">
         <Autosuggest
           // suggestions={suggestions}
           suggestions={data ? data.codes : []}

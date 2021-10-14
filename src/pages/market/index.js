@@ -26,7 +26,7 @@ export default memo(function SearchStock(props) {
     );
   const date = new Date(sectorShorts.date.lastUpdate);
   return (
-    <StyledMarket className="border-shadow">
+    <StyledMarket className="round-border">
       <p className="date">
         {`End of Day: ${date.getDate()}-${
           date.getMonth() + 1

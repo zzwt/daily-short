@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledShortList = styled.div`
-  /* background: #ffffff; */
   margin: 20px 0;
-  background: #f0f0f0;
-  border-radius: 5px;
-  padding: 30px 0;
+  background: rgba(255, 255, 255, 0.3);
+
+  padding: 30px 20px;
 
   .title {
     margin: 0 0 0 20px;
-    /* width: 400px; */
-    /* text-align: center; */
     h3 {
       margin: 0;
     }
@@ -23,7 +20,7 @@ export const StyledShortList = styled.div`
 
   .top-short {
     padding: 0 10px;
-    background: #f0f0f0;
+    /* background: #f0f0f0; */
     .top-short-header,
     .top-short-data-item {
       display: flex;
@@ -34,11 +31,8 @@ export const StyledShortList = styled.div`
     }
 
     .top-short-header {
-      /* border-top-left-radius: 5px;
-      border-top-right-radius: 5px; */
-      /* width: 1000px; */
       font-weight: 500;
-      background: #dedede;
+      background: ${props => props.theme.colorWhite};
     }
 
     .top-short-data {
@@ -47,16 +41,14 @@ export const StyledShortList = styled.div`
 
       .top-short-data-item {
         margin-top: 5px;
-        /* border-radius: 5px; */
 
         background: #ffffff;
-        /* background: #; */
         cursor: pointer;
         .ticker {
-          background: #52c58e;
+          background: ${(props) => props.theme.colorPrimary};
           text-align: center;
           border-radius: 5px;
-          color: #ffffff;
+          color: ${(props) => props.theme.colorWhite};
           font-size: 0.9rem;
         }
         /* &:nth-child(even) {
@@ -64,7 +56,7 @@ export const StyledShortList = styled.div`
           background: #ffffff; 
         }*/
         &:hover {
-          background: #e0e0e0;
+          background: ${(props) => props.theme.colorLightgrey};
         }
       }
     }
