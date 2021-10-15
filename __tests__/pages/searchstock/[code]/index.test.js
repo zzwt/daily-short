@@ -4,6 +4,7 @@ import { findTestWrapper } from '../../../../src/utils/testHelper';
 import Cookies from 'universal-cookie';
 import useSWR from 'swr';
 import { StarOutlined, StarFilled } from '@ant-design/icons';
+import * as ReactAll from 'react';
 jest.mock('swr');
 const useRouter = jest.spyOn(require('next/router'), 'useRouter');
 useRouter.mockImplementation(() => ({
@@ -44,6 +45,16 @@ const mockDataTPW = {
     },
   ],
 };
+
+jest.spyOn(ReactAll, 'useContext').mockImplementation(() => ({
+  colorPrimary: '#00be70',
+  colorSecondary: 'black',
+  colorWhite: '#ffffff',
+  colorGrey: '#9da7b9',
+  colorLightgrey: '#f0f0f0',
+  colorRed: '#ff3f4f',
+}));
+
 describe('Search Individual Stock Page', () => {
   beforeEach(() => {
     useSWR.mockClear();
@@ -136,7 +147,6 @@ describe('Search Individual Stock Page', () => {
       });
 
       const wrapper = mount(<SearchIndividualStock />);
-      // expect(mockGetCookie).toHaveBeenCalled();
       expect(wrapper.find(StarOutlined).length).toBe(1);
     });
 
