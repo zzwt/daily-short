@@ -90,7 +90,7 @@ const fetchData = async () => {
   const pathToExtension = `./Anti_Captcha_1.0.2.0`;
 
   const browser = await puppeteer.launch({
-    headless: chrome,
+    headless: "chrome",
     args: [
       `--disable-extensions-except=${pathToExtension}`,
       `--load-extension=${pathToExtension}`,
