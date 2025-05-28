@@ -93,6 +93,7 @@ const fetchData = async () => {
     args: [
       `--disable-extensions-except=${pathToExtension}`,
       `--load-extension=${pathToExtension}`,
+      "--no-sandbox",
     ],
     executablePath:
       process.env.CHROME_EXECUTABLE_PATH ||
