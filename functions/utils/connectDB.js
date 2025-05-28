@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 let connection;
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   if (!global.connection) global.connection = {};
   connection = global.connection;
 } else {
@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') {
 async function connectDb() {
   if (connection.isConnected) {
     // Use existing database connection
-    console.log('Using existing connection');
+    console.log("Using existing connection");
     return;
   }
   // Use new database connection
@@ -20,8 +20,23 @@ async function connectDb() {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  console.log('DB Connected');
+  console.log("DB Connected");
   connection.isConnected = db.connections[0].readyState;
 }
 
-module.exports = connectDb;
+async function disconnectDb() {
+  if (connection.isConnected) {
+    try {
+      await mongoose.disconnect();
+      connection.isConnected = false;
+      console.log("DB Disconnected");
+    } catch (error) {
+      console.error("Error disconnecting from DB:", error);
+    }
+  }
+}
+
+module.exports = {
+  connectDb,
+  disconnectDb,
+};
