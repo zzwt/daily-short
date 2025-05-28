@@ -93,6 +93,11 @@ const fetchData = async () => {
       `--disable-extensions-except=${pathToExtension}`,
       `--load-extension=${pathToExtension}`,
     ],
+    executablePath:
+      process.env.CHROME_EXECUTABLE_PATH ||
+      (await chromium.executablePath(
+        "/var/task/node_modules/@sparticuz/chromium/bin"
+      )),
   });
   const pages = await browser.pages();
   const page = pages[0] || (await browser.newPage());
