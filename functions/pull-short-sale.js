@@ -1,4 +1,5 @@
-const puppeteer = require("puppeteer");
+require("dotenv").config();
+const puppeteer = require("puppeteer-core");
 const chromium = require("@sparticuz/chromium");
 const moment = require("moment");
 const { connectDb, disconnectDb } = require("./utils/connectDB");
@@ -86,10 +87,10 @@ const updateExtensionAPIKey = async (page, url) => {
 };
 
 const fetchData = async () => {
-  const pathToExtension = "./Anti_Captcha_1.0.2.0";
+  const pathToExtension = `./Anti_Captcha_1.0.2.0`;
 
   const browser = await puppeteer.launch({
-    headless: "chrome",
+    headless: chrome,
     args: [
       `--disable-extensions-except=${pathToExtension}`,
       `--load-extension=${pathToExtension}`,
