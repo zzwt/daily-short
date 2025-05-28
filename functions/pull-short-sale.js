@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+const chromium = require("@sparticuz/chromium");
 const moment = require("moment");
 const { connectDb, disconnectDb } = require("./utils/connectDB");
 const Meta = require("./models/Meta");
